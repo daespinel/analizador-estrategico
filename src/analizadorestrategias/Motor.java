@@ -15,6 +15,8 @@ public class Motor {
      public static Analizador ui;
     public static void main(String[] args) {
             ui = new Analizador();
+            
+            ui.iniciarDatos();
 
 	}
 }
