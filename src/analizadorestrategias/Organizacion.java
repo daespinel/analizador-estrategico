@@ -6,6 +6,8 @@
 
 package analizadorestrategias;
 
+import static analizadorestrategias.Motor.organizacion1;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +20,9 @@ public class Organizacion {
     private ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
     private double ganancias;
     private double capital;
+    private Estrategia estrategia;
+    private double ingresos;
+    
 
     
     public Organizacion(){
@@ -85,6 +90,65 @@ public class Organizacion {
      */
     public void setCapital(double capital) {
         this.capital = capital;
+    }
+
+    /**
+     * @return the estrategia
+     */
+    public Estrategia getEstrategia() {
+        return estrategia;
+    }
+
+    /**
+     * @param estrategia the estrategia to set
+     */
+    public void setEstrategia(Estrategia estrategia) {
+        this.estrategia = estrategia;
+    }
+    
+    public void agregarTienda(Tienda tienda){
+        tiendas.add(tienda);
+    }
+
+    /**
+     * @return the ingresos
+     */
+    public double getIngresos() {
+        return ingresos;
+    }
+
+    /**
+     * @param ingresos the ingresos to set
+     */
+    public void setIngresos(double ingresos) {
+        this.ingresos = ingresos;
+    }
+    
+    public void calcularIngresosTiendas(){
+        double temporalDeIngresos=0;
+        
+        for(int i=0;i<tiendas.size();i++){
+            temporalDeIngresos=temporalDeIngresos+(tiendas.get(i).getVentas()*Motor.valorFactura);
+        }
+        setIngresos(temporalDeIngresos);
+    }
+    
+    public double getTotalVentas(){
+        double numVentas=0;
+        for(int i=0;i<tiendas.size();i++){
+            numVentas=numVentas+(tiendas.get(i).getVentas());
+        }
+        return numVentas;
+    }
+    
+    public String getCapitalFormato(){
+        DecimalFormat df = new DecimalFormat("#########################.##");
+                return String.valueOf(df.format(getCapital()));
+    }
+    
+    public String getIngresosFormato(){
+            DecimalFormat df = new DecimalFormat("#########################.##");
+                return String.valueOf(df.format(getIngresos()));
     }
     
 }

@@ -13,10 +13,10 @@ package analizadorestrategias;
 public class Tienda {
     
     private String zona;
-    private int ventas;
-    private int ticket;
+    private double ventas;
+    private double ticket;
     
-    public Tienda(String zona,int ventas){
+    public Tienda(String zona,double ventas){
         setZona(zona);
         setVentas(ventas);
     }
@@ -38,28 +38,28 @@ public class Tienda {
     /**
      * @return the ventas
      */
-    public int getVentas() {
+    public double getVentas() {
         return ventas;
     }
 
     /**
      * @param ventas the ventas to set
      */
-    public void setVentas(int ventas) {
+    public void setVentas(double ventas) {
         this.ventas = ventas;
     }
 
     /**
      * @return the ticket
      */
-    public int getTicket() {
+    public double getTicket() {
         return ticket;
     }
 
     /**
      * @param ticket the ticket to set
      */
-    public void setTicket(int ticket) {
+    public void setTicket(double ticket) {
         this.ticket = ticket;
     }
     
