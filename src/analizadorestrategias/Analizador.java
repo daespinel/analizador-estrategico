@@ -6,6 +6,8 @@
 
 package analizadorestrategias;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -21,6 +23,22 @@ public class Analizador extends javax.swing.JFrame {
     /**
      * Creates new form Analizador
      */
+        
+    
+       
+        
+        int apAlto=800;
+        int apAncho=600;
+        int x0 = 0;
+        int y0 = 0;
+        int xN = apAncho-1;
+        int yN = apAlto-1;
+        double xmin = -10.0;
+        double xmax = 10.0;
+        double ymin = -1.0;
+        double ymax = 1.0;
+        int pausar=1;
+    
     public Analizador() {
         
         try {
@@ -67,6 +85,25 @@ public class Analizador extends javax.swing.JFrame {
 
         jFrame2 = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
+        jFrame4 = new javax.swing.JFrame();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jTextField19 = new javax.swing.JTextField();
+        jTextField20 = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         jFrame1 = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -89,7 +126,42 @@ public class Analizador extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jFrame3 = new javax.swing.JFrame();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel14 = new javax.swing.JLabel();
 
         jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame2.setAlwaysOnTop(true);
@@ -109,6 +181,105 @@ public class Analizador extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jFrame4.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrame4.setTitle("Analizador de Estrategias");
+        jFrame4.setIconImage(getIconImage());
+        jFrame4.setPreferredSize(new java.awt.Dimension(800, 600));
+        jFrame4.setResizable(false);
+        jFrame4.getContentPane().setLayout(null);
+
+        jLabel35.setToolTipText("Zona Oriente");
+        jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel35.setOpaque(true);
+        jFrame4.getContentPane().add(jLabel35);
+        jLabel35.setBounds(210, 130, 30, 20);
+
+        jLabel41.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel41.setForeground(new java.awt.Color(255, 102, 255));
+        jLabel41.setToolTipText("Zona Norte");
+        jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel41.setOpaque(true);
+        jFrame4.getContentPane().add(jLabel41);
+        jLabel41.setBounds(100, 120, 30, 20);
+
+        jLabel42.setToolTipText("Zona Occidente");
+        jLabel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel42.setOpaque(true);
+        jFrame4.getContentPane().add(jLabel42);
+        jLabel42.setBounds(180, 200, 30, 20);
+
+        jLabel43.setToolTipText("Zona Sur");
+        jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel43.setOpaque(true);
+        jFrame4.getContentPane().add(jLabel43);
+        jLabel43.setBounds(250, 180, 30, 20);
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Bogota.jpg"))); // NOI18N
+        jLabel33.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame4.getContentPane().add(jLabel33);
+        jLabel33.setBounds(20, 40, 450, 280);
+
+        jLabel37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame4.getContentPane().add(jLabel37);
+        jLabel37.setBounds(500, 30, 270, 290);
+
+        jLabel38.setText("Datos de la organización");
+        jFrame4.getContentPane().add(jLabel38);
+        jLabel38.setBounds(510, 40, 240, 14);
+
+        jTextField19.setEditable(false);
+        jTextField19.setBackground(new java.awt.Color(240, 240, 240));
+        jTextField19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jFrame4.getContentPane().add(jTextField19);
+        jTextField19.setBounds(130, 350, 260, 40);
+
+        jTextField20.setEditable(false);
+        jTextField20.setBackground(new java.awt.Color(240, 240, 240));
+        jTextField20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jFrame4.getContentPane().add(jTextField20);
+        jTextField20.setBounds(130, 410, 260, 40);
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel39.setText("Estrategia");
+        jFrame4.getContentPane().add(jLabel39);
+        jLabel39.setBounds(50, 400, 70, 40);
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel36.setText("Generación");
+        jFrame4.getContentPane().add(jLabel36);
+        jLabel36.setBounds(50, 360, 110, 15);
+
+        jLabel40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame4.getContentPane().add(jLabel40);
+        jLabel40.setBounds(20, 340, 750, 170);
+        jFrame4.getContentPane().add(jSeparator5);
+        jSeparator5.setBounds(20, 30, 450, 20);
+        jFrame4.getContentPane().add(jSeparator6);
+        jSeparator6.setBounds(510, 60, 250, 20);
+
+        jButton3.setText("VER GRAFICO VP");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame4.getContentPane().add(jButton3);
+        jButton3.setBounds(240, 520, 150, 40);
+
+        jButton4.setText("PAUSAR");
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jFrame4.getContentPane().add(jButton4);
+        jButton4.setBounds(40, 520, 150, 40);
+
+        jLabel34.setText("MAPA DE LA CIUDAD DE BOGOTA");
+        jFrame4.getContentPane().add(jLabel34);
+        jLabel34.setBounds(20, 10, 310, 14);
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo2.jpg"))); // NOI18N
+        jFrame4.getContentPane().add(jLabel32);
+        jLabel32.setBounds(0, 0, 800, 600);
+
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Ingreso de datos");
         jFrame1.setIconImage(getIconImage());
@@ -121,8 +292,11 @@ public class Analizador extends javax.swing.JFrame {
         jLabel1.setBounds(20, 310, 430, 20);
         jFrame1.getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 330, 590, 20);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevoneg.jpg"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jFrame1.getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 70, 230, 150);
+        jLabel3.setBounds(30, 70, 230, 150);
 
         jLabel4.setText("Nombre");
         jFrame1.getContentPane().add(jLabel4);
@@ -154,7 +328,7 @@ public class Analizador extends javax.swing.JFrame {
         jFrame1.getContentPane().add(jSeparator2);
         jSeparator2.setBounds(20, 40, 590, 20);
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("Valor");
         jFrame1.getContentPane().add(jLabel8);
         jLabel8.setBounds(60, 270, 140, 14);
 
@@ -172,32 +346,250 @@ public class Analizador extends javax.swing.JFrame {
         jFrame1.getContentPane().add(jSeparator3);
         jSeparator3.setBounds(20, 250, 590, 20);
 
-        jLabel11.setText("jLabel11");
+        jLabel11.setText("Tasa de riesgo libre");
         jFrame1.getContentPane().add(jLabel11);
-        jLabel11.setBounds(50, 350, 70, 14);
+        jLabel11.setBounds(20, 350, 130, 14);
 
+        jTextField5.setEditable(false);
         jTextField5.setBackground(new java.awt.Color(240, 240, 240));
-        jTextField5.setEnabled(false);
         jFrame1.getContentPane().add(jTextField5);
-        jTextField5.setBounds(130, 350, 150, 20);
+        jTextField5.setBounds(140, 350, 80, 20);
 
-        jLabel12.setText("jLabel12");
+        jLabel12.setText("Volatilidad mercado");
         jFrame1.getContentPane().add(jLabel12);
-        jLabel12.setBounds(300, 350, 80, 14);
+        jLabel12.setBounds(300, 350, 120, 14);
 
+        jTextField6.setEditable(false);
         jTextField6.setBackground(new java.awt.Color(240, 240, 240));
-        jTextField6.setEnabled(false);
         jFrame1.getContentPane().add(jTextField6);
-        jTextField6.setBounds(410, 350, 170, 20);
+        jTextField6.setBounds(420, 350, 80, 20);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("CONTINUAR");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jFrame1.getContentPane().add(jButton1);
         jButton1.setBounds(260, 410, 150, 40);
+
+        jLabel44.setText("%");
+        jFrame1.getContentPane().add(jLabel44);
+        jLabel44.setBounds(510, 350, 40, 14);
+
+        jLabel45.setText("%");
+        jFrame1.getContentPane().add(jLabel45);
+        jLabel45.setBounds(230, 350, 40, 14);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo1.jpg"))); // NOI18N
         jFrame1.getContentPane().add(jLabel13);
         jLabel13.setBounds(0, 0, 640, 480);
+
+        jFrame3.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrame3.setTitle("Datos Competencia");
+        jFrame3.setIconImage(getIconImage());
+        jFrame3.setPreferredSize(new java.awt.Dimension(640, 480));
+        jFrame3.getContentPane().setLayout(null);
+
+        jLabel15.setText("Datos iniciales de las otras organizaciones");
+        jFrame3.getContentPane().add(jLabel15);
+        jLabel15.setBounds(20, 20, 430, 14);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel20.setText("Nombre");
+        jFrame3.getContentPane().add(jLabel20);
+        jLabel20.setBounds(480, 160, 40, 13);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel23.setText("Nombre");
+        jFrame3.getContentPane().add(jLabel23);
+        jLabel23.setBounds(310, 160, 40, 13);
+
+        jTextField7.setEditable(false);
+        jTextField7.setBackground(new java.awt.Color(240, 240, 240));
+        jFrame3.getContentPane().add(jTextField7);
+        jTextField7.setBounds(480, 190, 100, 20);
+
+        jTextField8.setEditable(false);
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField8);
+        jTextField8.setBounds(20, 240, 100, 20);
+
+        jTextField9.setEditable(false);
+        jTextField9.setBackground(new java.awt.Color(240, 240, 240));
+        jFrame3.getContentPane().add(jTextField9);
+        jTextField9.setBounds(160, 190, 100, 20);
+
+        jTextField10.setEditable(false);
+        jTextField10.setBackground(new java.awt.Color(240, 240, 240));
+        jFrame3.getContentPane().add(jTextField10);
+        jTextField10.setBounds(310, 190, 100, 20);
+
+        jTextField11.setEditable(false);
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField11);
+        jTextField11.setBounds(20, 290, 100, 20);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel25.setText("Número de tiendas");
+        jFrame3.getContentPane().add(jLabel25);
+        jLabel25.setBounds(160, 220, 100, 13);
+
+        jTextField12.setEditable(false);
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField12);
+        jTextField12.setBounds(160, 240, 100, 20);
+
+        jTextField15.setEditable(false);
+        jTextField15.setBackground(new java.awt.Color(240, 240, 240));
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField15ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField15);
+        jTextField15.setBounds(20, 190, 100, 20);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel26.setText("Número de tiendas");
+        jFrame3.getContentPane().add(jLabel26);
+        jLabel26.setBounds(310, 220, 100, 13);
+
+        jTextField13.setEditable(false);
+        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField13ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField13);
+        jTextField13.setBounds(310, 240, 100, 20);
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel27.setText("Número de tiendas");
+        jFrame3.getContentPane().add(jLabel27);
+        jLabel27.setBounds(480, 220, 100, 13);
+
+        jTextField14.setEditable(false);
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField14);
+        jTextField14.setBounds(480, 240, 100, 20);
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel29.setText("Capital inicial");
+        jFrame3.getContentPane().add(jLabel29);
+        jLabel29.setBounds(160, 270, 90, 13);
+
+        jTextField16.setEditable(false);
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField16);
+        jTextField16.setBounds(160, 290, 100, 20);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel28.setText("Capital inicial");
+        jFrame3.getContentPane().add(jLabel28);
+        jLabel28.setBounds(20, 270, 90, 13);
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel30.setText("Capital inicial");
+        jFrame3.getContentPane().add(jLabel30);
+        jLabel30.setBounds(310, 270, 90, 13);
+
+        jTextField17.setEditable(false);
+        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField17ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField17);
+        jTextField17.setBounds(310, 290, 100, 20);
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel31.setText("Capital inicial");
+        jFrame3.getContentPane().add(jLabel31);
+        jLabel31.setBounds(480, 270, 90, 13);
+
+        jTextField18.setEditable(false);
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jTextField18);
+        jTextField18.setBounds(480, 290, 100, 20);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel24.setText("Número de tiendas");
+        jFrame3.getContentPane().add(jLabel24);
+        jLabel24.setBounds(20, 220, 100, 13);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel22.setText("Nombre");
+        jFrame3.getContentPane().add(jLabel22);
+        jLabel22.setBounds(160, 160, 40, 13);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel21.setText("Nombre");
+        jFrame3.getContentPane().add(jLabel21);
+        jLabel21.setBounds(20, 160, 40, 13);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tienda4.jpg"))); // NOI18N
+        jLabel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame3.getContentPane().add(jLabel18);
+        jLabel18.setBounds(310, 60, 100, 90);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setText("CONTINUAR");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jFrame3.getContentPane().add(jButton2);
+        jButton2.setBounds(260, 400, 150, 40);
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tienda5.jpg"))); // NOI18N
+        jLabel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame3.getContentPane().add(jLabel19);
+        jLabel19.setBounds(480, 60, 100, 90);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tienda3.jpg"))); // NOI18N
+        jLabel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame3.getContentPane().add(jLabel16);
+        jLabel16.setBounds(160, 60, 100, 90);
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tienda2.jpg"))); // NOI18N
+        jLabel17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame3.getContentPane().add(jLabel17);
+        jLabel17.setBounds(20, 60, 100, 90);
+        jFrame3.getContentPane().add(jSeparator4);
+        jSeparator4.setBounds(20, 40, 590, 20);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo1.jpg"))); // NOI18N
+        jFrame3.getContentPane().add(jLabel14);
+        jLabel14.setBounds(0, 0, 640, 480);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 480));
@@ -209,11 +601,11 @@ public class Analizador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         bindingGroup.bind();
@@ -222,20 +614,127 @@ public class Analizador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jFrame1.setVisible(false);
+        jFrame3.setSize(640,480);     
+        jFrame3.setLocationRelativeTo(null);
+        jFrame3.toFront();
+        jFrame3.setVisible(true);
+        colocarDatosCompetencia();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jFrame3.setVisible(false);
+        jFrame4.setSize(800,600);     
+        jFrame4.setLocationRelativeTo(null);
+        jFrame4.toFront();
+        jLabel41.setBackground(Color.green);
+        jLabel42.setBackground(Color.green);
+        jLabel43.setBackground(Color.green);
+        jLabel35.setBackground(Color.green);
+        jFrame4.setVisible(true);
+        pausar=0;
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(pausar==0){
+            pausar=1;
+            jButton4.setText("CONTINUAR");
+        }else{
+            if(pausar==1){
+                pausar=0;
+                jButton4.setText("PAUSAR");
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
+    private javax.swing.JFrame jFrame3;
+    private javax.swing.JFrame jFrame4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -244,25 +743,49 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-private static void pause() {
+    private static void pause() {
         try {
             Thread.sleep(5000);
-            System.out.println("pausa");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Analizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private static void pause1() {
+        try {
+            Thread.sleep(500);
         } catch (InterruptedException ex) {
             Logger.getLogger(Analizador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-public void iniciarDatos(){
+    public void iniciarDatos(){
         pause();
         jFrame2.setVisible(false);
    
@@ -270,6 +793,8 @@ public void iniciarDatos(){
         jFrame1.setLocationRelativeTo(null);
         jFrame1.toFront();
         jFrame1.setVisible(true);
+        jTextField5.setText(Double.toString(Motor.tasaRiesgoLibre));
+        jTextField6.setText(Double.toString(Motor.volatilidadMercado));
         this.setVisible(false);
 }
 
@@ -282,5 +807,36 @@ public void iniciarDatos(){
         return retValue;
     }
 
+    public void colocarGeneraciones(String text){
+        jTextField19.setText(text);
+        pause1();
+    }
+    
+    public void continuar(){
+        while(pausar==1){
+            pause1();
+        }
+    }
+    
+    public void colocarDatosCompetencia(){
+        jTextField15.setText(Motor.organizacion2.getNombre());
+        jTextField15.setEditable(false);
+        jTextField9.setText(Motor.organizacion3.getNombre());
+        jTextField9.setEditable(false);
+        jTextField10.setText(Motor.organizacion4.getNombre());
+        jTextField10.setEditable(false);
+        jTextField7.setText(Motor.organizacion5.getNombre());
+        jTextField7.setEditable(false);
+        
+        jTextField8.setText(Integer.toString(Motor.organizacion2.getNumeroTiendas()));
+        jTextField12.setText(Integer.toString(Motor.organizacion3.getNumeroTiendas()));
+        jTextField13.setText(Integer.toString(Motor.organizacion4.getNumeroTiendas()));
+        jTextField14.setText(Integer.toString(Motor.organizacion5.getNumeroTiendas()));
+        
+        jTextField11.setText(Double.toString(Motor.organizacion2.getCapital()));
+        jTextField16.setText(Double.toString(Motor.organizacion3.getCapital()));
+        jTextField17.setText(Double.toString(Motor.organizacion4.getCapital()));
+        jTextField18.setText(Double.toString(Motor.organizacion5.getCapital()));
+    }
 
 }
