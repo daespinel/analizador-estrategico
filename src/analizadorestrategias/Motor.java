@@ -46,7 +46,7 @@ public class Motor {
             organizacion4= new Organizacion("Exito Express",0);
             organizacion5= new Organizacion("Oxxo",0);
             ui = new Analizador();
-            
+            inicializarOrganizacionesCompetencia();
             ui.iniciarDatos();
             ui.continuarDatosNuevos();
             
@@ -113,5 +113,128 @@ public class Motor {
         }
         double x = DStd * (Suma - 6) + Media;
         return (int)x;
+    }
+    
+    public static void inicializarOrganizacionesCompetencia(){
+        double capitalT=Normal(50000000,2000000);
+        organizacion2= new Organizacion("7-Eleven",capitalT);
+            int tiendasTemp=Normal(20,5);
+            for(int i=0;i<tiendasTemp;i++){
+                int zona=rnd.nextInt(4);
+                String nombreTemporal="";
+                double ventasT=0;
+                switch(zona){
+                    case 0:
+                        nombreTemporal=ZONAN;
+                        ventasT=VZONAN;
+                        break;
+                    case 1:
+                        nombreTemporal=ZONAS;
+                        ventasT=VZONAS;
+                        break;
+                    case 2:
+                        nombreTemporal=ZONAO;
+                        ventasT=VZONAO;
+                        break;
+                    case 3:
+                        nombreTemporal=ZONAOCC;
+                        ventasT=VZONAOCC;
+                        break;
+                }
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                organizacion2.agregarTienda(tiendaTemp);
+            }
+            organizacion2.setEstrategia(new Estrategia("INVERTIR"));
+            
+        capitalT=Normal(50000000,2000000);
+        organizacion3= new Organizacion("FamilyMart",capitalT);
+            tiendasTemp=Normal(20,5);
+            for(int i=0;i<tiendasTemp;i++){
+                int zona=rnd.nextInt(4);
+                String nombreTemporal="";
+                double ventasT=0;
+                switch(zona){
+                    case 0:
+                        nombreTemporal=ZONAN;
+                        ventasT=VZONAN;
+                        break;
+                    case 1:
+                        nombreTemporal=ZONAS;
+                        ventasT=VZONAS;
+                        break;
+                    case 2:
+                        nombreTemporal=ZONAO;
+                        ventasT=VZONAO;
+                        break;
+                    case 3:
+                        nombreTemporal=ZONAOCC;
+                        ventasT=VZONAOCC;
+                        break;
+                }
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                organizacion3.agregarTienda(tiendaTemp);
+            }
+            organizacion3.setEstrategia(new Estrategia("INVERTIR"));
+            
+        capitalT=Normal(50000000,2000000);
+        organizacion4= new Organizacion("EXITO Express",capitalT);
+            tiendasTemp=Normal(20,5);
+            for(int i=0;i<tiendasTemp;i++){
+                int zona=rnd.nextInt(4);
+                String nombreTemporal="";
+                double ventasT=0;
+                switch(zona){
+                    case 0:
+                        nombreTemporal=ZONAN;
+                        ventasT=VZONAN;
+                        break;
+                    case 1:
+                        nombreTemporal=ZONAS;
+                        ventasT=VZONAS;
+                        break;
+                    case 2:
+                        nombreTemporal=ZONAO;
+                        ventasT=VZONAO;
+                        break;
+                    case 3:
+                        nombreTemporal=ZONAOCC;
+                        ventasT=VZONAOCC;
+                        break;
+                }
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                organizacion4.agregarTienda(tiendaTemp);
+            }
+            organizacion4.setEstrategia(new Estrategia("INVERTIR"));
+            
+        capitalT=Normal(50000000,2000000);
+        organizacion5= new Organizacion("Oxxo",capitalT);
+            tiendasTemp=Normal(20,5);
+            for(int i=0;i<tiendasTemp;i++){
+                int zona=rnd.nextInt(4);
+                String nombreTemporal="";
+                double ventasT=0;
+                switch(zona){
+                    case 0:
+                        nombreTemporal=ZONAN;
+                        ventasT=VZONAN;
+                        break;
+                    case 1:
+                        nombreTemporal=ZONAS;
+                        ventasT=VZONAS;
+                        break;
+                    case 2:
+                        nombreTemporal=ZONAO;
+                        ventasT=VZONAO;
+                        break;
+                    case 3:
+                        nombreTemporal=ZONAOCC;
+                        ventasT=VZONAOCC;
+                        break;
+                }
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                organizacion5.agregarTienda(tiendaTemp);
+            }
+            organizacion5.setEstrategia(new Estrategia("INVERTIR"));
+            
     }
 }

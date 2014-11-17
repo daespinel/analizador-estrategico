@@ -22,6 +22,7 @@ public class Organizacion {
     private double capital;
     private Estrategia estrategia;
     private double ingresos;
+    private double gastos;
     
 
     
@@ -149,6 +150,20 @@ public class Organizacion {
     public String getIngresosFormato(){
             DecimalFormat df = new DecimalFormat("#########################.##");
                 return String.valueOf(df.format(getIngresos()));
+    }
+
+    /**
+     * @return the gastos
+     */
+    public double getGastos() {
+        return gastos;
+    }
+
+    /**
+     * @param gastos the gastos to set
+     */
+    public void setGastos(double gastos) {
+        this.gastos = gastos;
     }
     
 }

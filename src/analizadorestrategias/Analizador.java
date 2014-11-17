@@ -107,6 +107,7 @@ public class Analizador extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
+        jTextField25 = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -119,6 +120,8 @@ public class Analizador extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jLabel50 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
@@ -229,19 +232,20 @@ public class Analizador extends javax.swing.JFrame {
         jFrame4.getContentPane().add(jPan);
         jPan.setBounds(410, 350, 350, 150);
         jFrame4.getContentPane().add(jTextField21);
-        jTextField21.setBounds(580, 80, 180, 20);
+        jTextField21.setBounds(580, 70, 180, 20);
 
         jLabel47.setText("Capital");
         jFrame4.getContentPane().add(jLabel47);
-        jLabel47.setBounds(510, 140, 60, 14);
+        jLabel47.setBounds(510, 110, 60, 14);
 
         jLabel46.setText("Tiendas");
         jFrame4.getContentPane().add(jLabel46);
-        jLabel46.setBounds(510, 80, 70, 14);
+        jLabel46.setBounds(510, 70, 70, 14);
 
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel48.setText("Ingresos");
         jFrame4.getContentPane().add(jLabel48);
-        jLabel48.setBounds(510, 200, 60, 14);
+        jLabel48.setBounds(510, 150, 60, 14);
 
         jLabel41.setBackground(new java.awt.Color(255, 255, 255));
         jLabel41.setForeground(new java.awt.Color(255, 102, 255));
@@ -257,19 +261,22 @@ public class Analizador extends javax.swing.JFrame {
         jFrame4.getContentPane().add(jLabel42);
         jLabel42.setBounds(180, 200, 30, 20);
         jFrame4.getContentPane().add(jTextField23);
-        jTextField23.setBounds(580, 200, 180, 20);
+        jTextField23.setBounds(580, 150, 180, 20);
         jFrame4.getContentPane().add(jTextField22);
-        jTextField22.setBounds(580, 140, 180, 20);
+        jTextField22.setBounds(580, 110, 180, 20);
         jFrame4.getContentPane().add(jTextField24);
-        jTextField24.setBounds(580, 260, 180, 20);
+        jTextField24.setBounds(580, 200, 180, 20);
         jFrame4.getContentPane().add(jSeparator7);
         jSeparator7.setBounds(510, 240, 250, 20);
         jFrame4.getContentPane().add(jSeparator8);
-        jSeparator8.setBounds(510, 120, 250, 20);
+        jSeparator8.setBounds(510, 100, 250, 20);
         jFrame4.getContentPane().add(jSeparator9);
-        jSeparator9.setBounds(510, 180, 250, 20);
+        jSeparator9.setBounds(510, 140, 250, 20);
+        jFrame4.getContentPane().add(jTextField25);
+        jTextField25.setBounds(580, 260, 180, 20);
 
-        jLabel49.setText("Ventas");
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel49.setText("Gastos");
         jFrame4.getContentPane().add(jLabel49);
         jLabel49.setBounds(510, 260, 60, 14);
 
@@ -319,6 +326,13 @@ public class Analizador extends javax.swing.JFrame {
         jSeparator5.setBounds(20, 30, 450, 20);
         jFrame4.getContentPane().add(jSeparator6);
         jSeparator6.setBounds(510, 60, 250, 20);
+        jFrame4.getContentPane().add(jSeparator10);
+        jSeparator10.setBounds(510, 190, 250, 20);
+
+        jLabel50.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel50.setText("Ventas");
+        jFrame4.getContentPane().add(jLabel50);
+        jLabel50.setBounds(510, 200, 60, 14);
 
         jButton3.setText("VER GRAFICO VP");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -816,12 +830,14 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPan;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -847,6 +863,7 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -927,10 +944,10 @@ public class Analizador extends javax.swing.JFrame {
         jTextField13.setText(Integer.toString(Motor.organizacion4.getNumeroTiendas()));
         jTextField14.setText(Integer.toString(Motor.organizacion5.getNumeroTiendas()));
         
-        jTextField11.setText(Double.toString(Motor.organizacion2.getCapital()));
-        jTextField16.setText(Double.toString(Motor.organizacion3.getCapital()));
-        jTextField17.setText(Double.toString(Motor.organizacion4.getCapital()));
-        jTextField18.setText(Double.toString(Motor.organizacion5.getCapital()));
+        jTextField11.setText((Motor.organizacion2.getCapitalFormato()));
+        jTextField16.setText(Motor.organizacion3.getCapitalFormato());
+        jTextField17.setText(Motor.organizacion4.getCapitalFormato());
+        jTextField18.setText(Motor.organizacion5.getCapitalFormato());
     }
     
     public void pintar(){
