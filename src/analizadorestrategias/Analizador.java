@@ -11,6 +11,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -40,6 +42,7 @@ public class Analizador extends javax.swing.JFrame {
         double ymax = 1.0;
         int pausar=1;
         int pausarDatosNuevos=1;
+        int utilizarbotondegrafico=1;
         String nombre;
         int numeroTiendas;
         double capitalI;
@@ -188,7 +191,6 @@ public class Analizador extends javax.swing.JFrame {
         jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame2.setAlwaysOnTop(true);
         jFrame2.setFocusableWindowState(false);
-        jFrame2.setPreferredSize(new java.awt.Dimension(640, 480));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Introduccion.jpg"))); // NOI18N
 
@@ -365,7 +367,6 @@ public class Analizador extends javax.swing.JFrame {
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Ingreso de datos");
         jFrame1.setIconImage(getIconImage());
-        jFrame1.setPreferredSize(new java.awt.Dimension(640, 480));
         jFrame1.setResizable(false);
         jFrame1.getContentPane().setLayout(null);
 
@@ -713,6 +714,7 @@ public class Analizador extends javax.swing.JFrame {
         jLabel43.setBackground(Color.green);
         jLabel35.setBackground(Color.green);
         jFrame4.setVisible(true);
+        
         jButton3.setEnabled(false);
         pausar=0;
         
@@ -757,6 +759,7 @@ public class Analizador extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(pausar==0){
+            utilizarbotondegrafico=0;
             pausar=1;
             jButton4.setText("CONTINUAR");
             jButton3.setEnabled(true);
@@ -765,13 +768,39 @@ public class Analizador extends javax.swing.JFrame {
                 pausar=0;
                 jButton4.setText("PAUSAR");
                 jButton3.setEnabled(false);
+                jPan.removeAll();
+                jPan.repaint();
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
         Graphics2D gfx = (Graphics2D)jPan.getGraphics();
-        gfx.drawLine(0, 0, 100, 100);
+        
+        ArrayList<Double> arraytemporaldeprueba= new ArrayList<Double>();
+        for(int i=0;i<50;i++){
+            arraytemporaldeprueba.add((double)Motor.rnd.nextInt(50));
+        }
+        
+        if(utilizarbotondegrafico==0){
+            if(arraytemporaldeprueba.size()>350){
+                int datoinicio=arraytemporaldeprueba.size()-351;
+                List<Double> listadeelementostemporal= arraytemporaldeprueba.subList(datoinicio, arraytemporaldeprueba.size());
+                for(int j=0;j<listadeelementostemporal.size()-1;j++){
+                    int valory1=150-listadeelementostemporal.get(j).intValue();
+                    int valory2=150-listadeelementostemporal.get(j+1).intValue();
+                    gfx.drawLine(j,valory1,j+1,valory2);
+                    //System.out.println(350-listadeelementostemporal.get(j).intValue());
+                }
+            }else{
+                for(int j=0;j<arraytemporaldeprueba.size()-1;j++){
+                    gfx.drawLine(j,150-arraytemporaldeprueba.get(j).intValue(),j+1,150-arraytemporaldeprueba.get(j+1).intValue());
+                }
+            
+            }
+        }
+        utilizarbotondegrafico=1;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     
