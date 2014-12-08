@@ -188,7 +188,6 @@ public class Analizador extends javax.swing.JFrame {
         jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame2.setAlwaysOnTop(true);
         jFrame2.setFocusableWindowState(false);
-        jFrame2.setPreferredSize(new java.awt.Dimension(640, 480));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Introduccion.jpg"))); // NOI18N
 
@@ -365,7 +364,6 @@ public class Analizador extends javax.swing.JFrame {
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Ingreso de datos");
         jFrame1.setIconImage(getIconImage());
-        jFrame1.setPreferredSize(new java.awt.Dimension(640, 480));
         jFrame1.setResizable(false);
         jFrame1.getContentPane().setLayout(null);
 
@@ -956,12 +954,13 @@ public class Analizador extends javax.swing.JFrame {
     }
     
     public void mostrarDatosOrganizacion1(){
-        jTextField20.setText(Motor.organizacion1.getEstrategia().getNombre());
+        jTextField20.setText(Motor.organizacion1.estrategia[Motor.organizacion1.getEstrategiaActual()].getNombre());
         jTextField21.setText(String.valueOf(Motor.organizacion1.getNumeroTiendas()));
         jTextField22.setText(String.valueOf(Motor.organizacion1.getCapitalFormato()));
         
         jTextField23.setText(String.valueOf(Motor.organizacion1.getIngresosFormato()));
         jTextField24.setText(String.valueOf(Motor.organizacion1.getTotalVentas()));
+        jTextField25.setText(String.valueOf(Motor.organizacion1.getGastosFormato()));
     }
     
        

@@ -15,10 +15,12 @@ public class Tienda {
     private String zona;
     private double ventas;
     private double ticket;
+    private double gastos;
     
-    public Tienda(String zona,double ventas){
+    public Tienda(String zona,double ventas,double gastos){
         setZona(zona);
         setVentas(ventas);
+        setGastos(gastos);
     }
 
     /**
@@ -61,6 +63,20 @@ public class Tienda {
      */
     public void setTicket(double ticket) {
         this.ticket = ticket;
+    }
+
+    /**
+     * @return the gastos
+     */
+    public double getGastos() {
+        return gastos;
+    }
+
+    /**
+     * @param gastos the gastos to set
+     */
+    public void setGastos(double gastos) {
+        this.gastos = gastos;
     }
     
 }

@@ -20,9 +20,10 @@ public class Organizacion {
     private ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
     private double ganancias;
     private double capital;
-    private Estrategia estrategia;
-    private double ingresos;
+    public Estrategia[] estrategia;
+    private double ingresos; 
     private double gastos;
+    private int estrategiaActual;
     
 
     
@@ -32,6 +33,7 @@ public class Organizacion {
     public Organizacion(String nombre,double capital){
         setNombre(nombre);
         setCapital(capital);
+        setEstrategiaActual(0);
     }
     /**
      * @return the nombre
@@ -96,14 +98,14 @@ public class Organizacion {
     /**
      * @return the estrategia
      */
-    public Estrategia getEstrategia() {
+    public Estrategia[] getEstrategia() {
         return estrategia;
     }
 
     /**
      * @param estrategia the estrategia to set
      */
-    public void setEstrategia(Estrategia estrategia) {
+    public void setEstrategia(Estrategia[] estrategia) {
         this.estrategia = estrategia;
     }
     
@@ -132,6 +134,12 @@ public class Organizacion {
             temporalDeIngresos=temporalDeIngresos+(tiendas.get(i).getVentas()*Motor.valorFactura);
         }
         setIngresos(temporalDeIngresos);
+        double temporalDeGastos=0;
+        
+        for(int i=0;i<tiendas.size();i++){
+            temporalDeGastos=temporalDeGastos+(tiendas.get(i).getGastos());
+        }
+        setGastos(temporalDeGastos);
     }
     
     public double getTotalVentas(){
@@ -151,6 +159,11 @@ public class Organizacion {
             DecimalFormat df = new DecimalFormat("#########################.##");
                 return String.valueOf(df.format(getIngresos()));
     }
+    
+        public String getGastosFormato(){
+            DecimalFormat df = new DecimalFormat("#########################.##");
+                return String.valueOf(df.format(getGastos()));
+    }
 
     /**
      * @return the gastos
@@ -164,6 +177,20 @@ public class Organizacion {
      */
     public void setGastos(double gastos) {
         this.gastos = gastos;
+    }
+
+    /**
+     * @return the estrategiaActual
+     */
+    public int getEstrategiaActual() {
+        return estrategiaActual;
+    }
+
+    /**
+     * @param estrategiaActual the estrategiaActual to set
+     */
+    public void setEstrategiaActual(int estrategiaActual) {
+        this.estrategiaActual = estrategiaActual;
     }
     
 }

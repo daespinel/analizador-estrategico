@@ -11,9 +11,17 @@ import java.util.Random;
 
 /**
  *
- * @author USUARIO
+ * @author Lorena
+ * @author David
  */
 public class Motor {
+    
+    public static Estrategia[] estrategias1 = new Estrategia[4];
+    public static Estrategia[] estrategias2 = new Estrategia[4];
+    public static Estrategia[] estrategias3 = new Estrategia[4];
+    public static Estrategia[] estrategias4 = new Estrategia[4];
+    public static Estrategia[] estrategias5 = new Estrategia[4];
+    
     public static Organizacion organizacion1;
     public static Organizacion organizacion2;
     public static Organizacion organizacion3;
@@ -36,6 +44,8 @@ public class Motor {
     public static final double VZONAS=6000;
     public static final double VZONAO=4300;
     public static final double VZONAOCC=13800;
+    
+    public static final double GASTOBASE = 64000000;
     
     public static Random rnd = new Random();
     
@@ -76,13 +86,18 @@ public class Motor {
                         ventas=VZONAOCC;
                         break;
                 }
-                Tienda tiendaTemp=new Tienda(nombreTemporal,ventas);
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventas,GASTOBASE);
                 System.out.println(tiendaTemp.getZona());
                 organizacion1.agregarTienda(tiendaTemp);
             
             }
             
-            organizacion1.setEstrategia(new Estrategia("INVERTIR"));
+            estrategias1[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias1[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias1[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias1[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            organizacion1.estrategia = estrategias1; 
             
             while(generaciones<100000){
                 
@@ -141,10 +156,16 @@ public class Motor {
                         ventasT=VZONAOCC;
                         break;
                 }
-                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT,GASTOBASE);
                 organizacion2.agregarTienda(tiendaTemp);
             }
-            organizacion2.setEstrategia(new Estrategia("INVERTIR"));
+                       
+            estrategias2[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias2[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias2[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias2[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            organizacion2.estrategia = estrategias2;
             
         capitalT=Normal(50000000,2000000);
         organizacion3= new Organizacion("FamilyMart",capitalT);
@@ -171,10 +192,16 @@ public class Motor {
                         ventasT=VZONAOCC;
                         break;
                 }
-                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT,GASTOBASE);
                 organizacion3.agregarTienda(tiendaTemp);
             }
-            organizacion3.setEstrategia(new Estrategia("INVERTIR"));
+            
+            estrategias3[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias3[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias3[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias3[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            organizacion3.estrategia = estrategias3;
             
         capitalT=Normal(50000000,2000000);
         organizacion4= new Organizacion("EXITO Express",capitalT);
@@ -201,10 +228,16 @@ public class Motor {
                         ventasT=VZONAOCC;
                         break;
                 }
-                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT,GASTOBASE);
                 organizacion4.agregarTienda(tiendaTemp);
             }
-            organizacion4.setEstrategia(new Estrategia("INVERTIR"));
+            
+            estrategias4[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias4[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias4[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias4[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            organizacion4.estrategia = estrategias4;
             
         capitalT=Normal(50000000,2000000);
         organizacion5= new Organizacion("Oxxo",capitalT);
@@ -231,10 +264,23 @@ public class Motor {
                         ventasT=VZONAOCC;
                         break;
                 }
-                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT);
+                Tienda tiendaTemp=new Tienda(nombreTemporal,ventasT,GASTOBASE);
                 organizacion5.agregarTienda(tiendaTemp);
             }
-            organizacion5.setEstrategia(new Estrategia("INVERTIR"));
+           
+            estrategias5[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias5[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias5[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias5[3]= new Estrategia("No invertir",2,3,2,3);
             
+            organizacion5.estrategia = estrategias5;
+    }
+    
+    public static void fitness(Organizacion org1, Organizacion org2){
+        
+    }       
+    
+    public static void evaluarEstrategia(){
+        
     }
 }

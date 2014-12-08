@@ -17,7 +17,7 @@ class PanelGraf extends JPanel {
 
    @Override
    public void paintComponent (Graphics g){
-       System.out.println("mierda");
+       System.out.println("HOLA");
     super.paintComponent(g);
 
     int width = getWidth();
