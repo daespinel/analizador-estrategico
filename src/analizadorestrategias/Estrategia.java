@@ -33,11 +33,11 @@ public class Estrategia {
         return nombre;
     }
     
-    public int getabirTienda() {
+    public int getAbrirTienda() {
         return abrirTienda;
     }
     
-    public int getPago2() {
+    public int getCerrarTienda() {
         return cerrarTienda;
     }
     

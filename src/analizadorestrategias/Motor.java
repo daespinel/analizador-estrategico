@@ -278,6 +278,50 @@ public class Motor {
     
     public static void fitness(Organizacion org1, Organizacion org2){
         
+        if (org1.getSize()> org2.getSize()){
+            double diferencia = org1.getSize() - org2.getSize();
+            org1.estrategia[0].setAbrirTienda(org1.estrategia[0].getAbrirTienda()+2);
+            org1.estrategia[0].setCerrarTienda(org1.estrategia[0].getCerrarTienda()+2);
+            org1.estrategia[0].setCerrarTienda(org1.estrategia[0].getCerrarTienda()+2);
+            org1.estrategia[0].setCerrarTienda(org1.estrategia[0].getCerrarTienda()+2);
+            org1.estrategia[1].setAbrirTienda(org1.estrategia[1].getAbrirTienda()+2);
+            org1.estrategia[1].setCerrarTienda(org1.estrategia[1].getCerrarTienda()+2);
+            org1.estrategia[1].setCerrarTienda(org1.estrategia[1].getCerrarTienda()+2);
+            org1.estrategia[1].setCerrarTienda(org1.estrategia[1].getCerrarTienda()+2);
+            org1.estrategia[2].setAbrirTienda(org1.estrategia[2].getAbrirTienda()+2);
+            org1.estrategia[2].setCerrarTienda(org1.estrategia[2].getCerrarTienda()+2);
+            org1.estrategia[2].setCerrarTienda(org1.estrategia[2].getCerrarTienda()+2);
+            org1.estrategia[2].setCerrarTienda(org1.estrategia[2].getCerrarTienda()+2);
+            org1.estrategia[3].setAbrirTienda(org1.estrategia[3].getAbrirTienda()+2);
+            org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getCerrarTienda()+2);
+            org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getCerrarTienda()+2);
+            org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getCerrarTienda()+2);
+
+            org2.estrategia[0].setAbrirTienda(org2.estrategia[0].getAbrirTienda()+2);
+            org2.estrategia[0].setCerrarTienda(org2.estrategia[0].getCerrarTienda()+2);
+            org2.estrategia[0].setCerrarTienda(org2.estrategia[0].getCerrarTienda()+2);
+            org2.estrategia[0].setCerrarTienda(org2.estrategia[0].getCerrarTienda()+2);
+            org2.estrategia[1].setAbrirTienda(org2.estrategia[1].getAbrirTienda()+2);
+            org2.estrategia[1].setCerrarTienda(org2.estrategia[1].getCerrarTienda()+2);
+            org2.estrategia[1].setCerrarTienda(org2.estrategia[1].getCerrarTienda()+2);
+            org2.estrategia[1].setCerrarTienda(org2.estrategia[1].getCerrarTienda()+2);
+            org2.estrategia[2].setAbrirTienda(org2.estrategia[2].getAbrirTienda()+2);
+            org2.estrategia[2].setCerrarTienda(org2.estrategia[2].getCerrarTienda()+2);
+            org2.estrategia[2].setCerrarTienda(org2.estrategia[2].getCerrarTienda()+2);
+            org2.estrategia[2].setCerrarTienda(org2.estrategia[2].getCerrarTienda()+2);
+            org2.estrategia[3].setAbrirTienda(org2.estrategia[3].getAbrirTienda()+2);
+            org2.estrategia[3].setCerrarTienda(org2.estrategia[3].getCerrarTienda()+2);
+            org2.estrategia[3].setCerrarTienda(org2.estrategia[3].getCerrarTienda()+2);
+            org2.estrategia[3].setCerrarTienda(org2.estrategia[3].getCerrarTienda()+2);
+            
+            
+        }
+        else{
+           
+        }
+        if (org1.getGanancias()> org2.getGanancias()){
+            double diferencia = org1.getGanancias() - org2.getGanancias();
+        }
     }       
     
     public static void evaluarEstrategia(){
