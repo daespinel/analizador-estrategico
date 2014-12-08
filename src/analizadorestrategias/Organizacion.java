@@ -38,6 +38,12 @@ public class Organizacion {
     /**
      * @return the nombre
      */
+    public int getSize(){
+        int a = tiendas.size();
+        return a;
+    }
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -140,6 +146,8 @@ public class Organizacion {
             temporalDeGastos=temporalDeGastos+(tiendas.get(i).getGastos());
         }
         setGastos(temporalDeGastos);
+        double Ganancia = temporalDeIngresos - temporalDeGastos;
+        setGanancias(Ganancia);
     }
     
     public double getTotalVentas(){
@@ -163,6 +171,11 @@ public class Organizacion {
         public String getGastosFormato(){
             DecimalFormat df = new DecimalFormat("#########################.##");
                 return String.valueOf(df.format(getGastos()));
+    }
+    
+    public String getGananciaFormato(){
+            DecimalFormat df = new DecimalFormat("#########################.##");
+                return String.valueOf(df.format(getGanancias()));
     }
 
     /**
