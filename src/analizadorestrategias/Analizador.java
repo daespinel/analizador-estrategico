@@ -994,6 +994,41 @@ public class Analizador extends javax.swing.JFrame {
         jTextField25.setText(String.valueOf(Motor.organizacion1.getGastosFormato()));
     }
     
+    public void cambiarZonaNorteRojo(){
+        jLabel41.setBackground(Color.red);
+    }
+    
+    public void cambiarZonaSurRojo(){
+        jLabel43.setBackground(Color.red);
+    }
+    
+    public void cambiarZonaOrienteeRojo(){
+        jLabel35.setBackground(Color.red);
+    }
+    
+    public void cambiarZonaOccidenteRojo(){
+        jLabel42.setBackground(Color.red);
+    }
+    
+    public void cambiarZonaNorteVerde(){
+        jLabel41.setBackground(Color.green);
+        
+    }
+    
+    public void cambiarZonaSurVerde(){
+        jLabel43.setBackground(Color.green);
+       
+    }
+    
+    public void cambiarZonaOrienteVerde(){
+        jLabel35.setBackground(Color.green);
+    }
+    
+    public void cambiarZonaOccidenteVerde(){
+        jLabel42.setBackground(Color.green);
+
+    }
+    
        
     
 
