@@ -886,16 +886,19 @@ public class Analizador extends javax.swing.JFrame {
         if(utilizarbotondegrafico==0){
             if(Motor.valores.size()>350){
                 int datoinicio=Motor.valores.size()-351;
-                List<Double> listadeelementostemporal= Motor.valores.subList(datoinicio, Motor.valores.size());
-                for(int j=0;j<listadeelementostemporal.size()-1;j++){
-                    int valory1=150-listadeelementostemporal.get(j).intValue()/100000000;
-                    int valory2=150-listadeelementostemporal.get(j+1).intValue()/100000000;
-                    gfx.drawLine(j,valory1,j+1,valory2);
+                
+                for(int j=datoinicio;j<Motor.valores.size()-1;j++){
+                    System.out.println(Motor.valores.get(j).intValue()/100000000);
+                    int valory1=150-(Motor.valores.get(j).intValue()/100000000);
+                    
+                    int valory2=150-(Motor.valores.get(j+1).intValue()/100000000);
+                    gfx.drawLine(j-datoinicio,valory1,j+1-datoinicio,valory2);
                     //System.out.println(350-listadeelementostemporal.get(j).intValue());
                 }
             }else{
                 for(int j=0;j<Motor.valores.size()-1;j++){
-                    gfx.drawLine(j,150-Motor.valores.get(j).intValue()/100000000,j+1,150-Motor.valores.get(j+1).intValue()/100000000);
+                    System.out.println(Motor.valores.get(j).intValue()/100000000);
+                    gfx.drawLine(j,150-(Motor.valores.get(j).intValue()/100000000),j+1,150-(Motor.valores.get(j+1).intValue()/100000000));
                 }
             
             }
