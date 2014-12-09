@@ -1019,7 +1019,7 @@ public class Analizador extends javax.swing.JFrame {
         jLabel43.setBackground(Color.red);
     }
     
-    public void cambiarZonaOrienteeRojo(){
+    public void cambiarZonaOrienteRojo(){
         jLabel35.setBackground(Color.red);
     }
     

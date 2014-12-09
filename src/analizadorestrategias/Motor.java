@@ -103,7 +103,6 @@ public class Motor {
                         break;
                 }
                 Tienda tiendaTemp=new Tienda(nombreTemporal,ventas,GASTOBASE);
-                System.out.println(tiendaTemp.getZona());
                 organizacion1.agregarTienda(tiendaTemp);
             
             }
@@ -116,6 +115,8 @@ public class Motor {
             organizacion1.estrategia = estrategias1; 
             
             while(generaciones<100000){
+                ArrayList<Organizacion> temporalesDeAsignacion = new ArrayList<Organizacion>();
+                inicializarEstrategias();
                 variacionDelMercado();
                 organizacion1.calcularIngresosTiendas();
                 organizacion2.calcularIngresosTiendas();
@@ -123,30 +124,118 @@ public class Motor {
                 organizacion4.calcularIngresosTiendas();
                 organizacion5.calcularIngresosTiendas();
                 
-                fitness(organizacion1, organizacion2);
+                analizarVentasDeTiendasOrganizacion1();
+                
+                temporalesDeAsignacion=fitness(organizacion1, organizacion2);
+                organizacion1=temporalesDeAsignacion.get(0);
+                organizacion2=temporalesDeAsignacion.get(1);
                 estrategia1 = evaluarEstrategias(organizacion1);
                 pagoEst1 = pagoEstrategia(estrategia1,estrategiaAleatoria(organizacion2));
                                                 
-                fitness(organizacion1, organizacion3);
+                temporalesDeAsignacion=fitness(organizacion1, organizacion3);
+                organizacion1=temporalesDeAsignacion.get(0);
+                organizacion3=temporalesDeAsignacion.get(1);
                 estrategia2 = evaluarEstrategias(organizacion1);
                 pagoEst2 = pagoEstrategia(estrategia2,estrategiaAleatoria(organizacion3));
                 
-                fitness(organizacion1, organizacion4);
+                temporalesDeAsignacion=fitness(organizacion1, organizacion4);
+                organizacion1=temporalesDeAsignacion.get(0);
+                organizacion4=temporalesDeAsignacion.get(1);
                 estrategia3 = evaluarEstrategias(organizacion1);
                 pagoEst3 = pagoEstrategia(estrategia3,estrategiaAleatoria(organizacion4));
                 
-                fitness(organizacion1, organizacion5);
+                temporalesDeAsignacion=fitness(organizacion1, organizacion5);
+                organizacion1=temporalesDeAsignacion.get(0);
+                organizacion5=temporalesDeAsignacion.get(1);
                 estrategia4 = evaluarEstrategias(organizacion1);
                 pagoEst4 = pagoEstrategia(estrategia4,estrategiaAleatoria(organizacion5));
                 
                 comparaEstrategias();
                 valores.add(organizacion1.getGanancias());
+                
+                double capitalTemporal=0;
+                capitalTemporal=organizacion1.getCapital()+organizacion1.getGanancias()-organizacion1.getGastos();
+                organizacion1.setCapital(capitalTemporal);
+                capitalTemporal=organizacion2.getCapital()+organizacion2.getGanancias()-organizacion1.getGastos();
+                organizacion2.setCapital(capitalTemporal);
+                capitalTemporal=organizacion3.getCapital()+organizacion3.getGanancias()-organizacion1.getGastos();
+                organizacion3.setCapital(capitalTemporal);
+                capitalTemporal=organizacion4.getCapital()+organizacion4.getGanancias()-organizacion1.getGastos();
+                organizacion4.setCapital(capitalTemporal);
+                capitalTemporal=organizacion5.getCapital()+organizacion5.getGanancias()-organizacion1.getGastos();
+                organizacion5.setCapital(capitalTemporal);
+                
+                if(mejorEstrategia.getNombre().equals("Abrir Tienda")){
+                    int zona=rnd.nextInt(4);
+                    String nombreTemporal="";
+                    double ventas=0;
+                
+                    switch(zona){
+                     case 0:
+                            nombreTemporal=ZONAN;
+                            ventas=VZONAN;
+                            break;
+                     case 1:
+                        nombreTemporal=ZONAS;
+                        ventas=VZONAS;
+                        break;
+                    case 2:
+                        nombreTemporal=ZONAO;
+                        ventas=VZONAO;
+                        break;
+                    case 3:
+                        nombreTemporal=ZONAOCC;
+                        ventas=VZONAOCC;
+                        break;
+                    }
+                    Tienda tiendaTemp=new Tienda(nombreTemporal,ventas,GASTOBASE);
+                    organizacion1.agregarTienda(tiendaTemp);
+                    
+                }
+                else{
+                    if(mejorEstrategia.getNombre().equals("Cerrar Tienda")){
+                        ArrayList<Tienda> tiendasAEliminar =organizacion1.getTiendas();
+                        Tienda tiendaAEliminar=tiendasAEliminar.get(0);
+                        int posicionAEliminar=0;
+                        for(int i=0;i<tiendasAEliminar.size();i++){
+                            if(tiendaAEliminar.getVentas()>tiendasAEliminar.get(i).getVentas()){
+                                tiendaAEliminar=tiendasAEliminar.get(i);
+                                posicionAEliminar=i;
+                                
+                                
+                            }
+                        }
+                        organizacion1.eliminarTienda(posicionAEliminar);
+                    }
+                    else{
+                        if(mejorEstrategia.getNombre().equals("Publicidad")){
+                            double capital=organizacion1.getCapital();
+                            organizacion1.setCapital(capital-50000000);
+                            int algo =rnd.nextInt(organizacion1.getSize());
+                            Tienda cambio=organizacion1.getTiendas().get(algo);
+                            double ventasActuales=cambio.getVentas();
+                            cambio.setVentas(ventasActuales+ventasActuales*0.05);
+                            
+                            organizacion1.cambiarDatosTienda(cambio, algo);
+                        }
+                        else{
+                            if(mejorEstrategia.getNombre().equals("No invertir")){
+                                double capital=organizacion1.getCapital();
+                                organizacion1.setCapital(capital-25000000);
+                            }
+                            }
+                }
+                
                 ui.continuar();
                 generaciones++;
                 ui.colocarGeneraciones(getGen());
                 ui.mostrarDatosOrganizacion1();
+                System.out.println(generaciones+" "+ organizacion1.getGananciaFormato());
+                
             }
 	}
+            
+    }
     
     public static String getGen(){
         return Integer.toString(generaciones);
@@ -308,8 +397,10 @@ public class Motor {
             organizacion5.estrategia = estrategias5;
     }
     
-    public static void fitness(Organizacion org1, Organizacion org2){
-        
+    
+    
+    public static ArrayList<Organizacion> fitness(Organizacion org1, Organizacion org2){
+        ArrayList<Organizacion> temporales = new ArrayList<Organizacion>();
         if (org1.getSize()> org2.getSize()){
             double diferencia = org1.getSize() - org2.getSize();
             org1.estrategia[0].setAbrirTienda(org1.estrategia[0].getAbrirTienda()-1);
@@ -452,8 +543,12 @@ public class Motor {
             org2.estrategia[3].setCerrarTienda(org2.estrategia[3].getCerrarTienda()+1);
             org2.estrategia[3].setPublicidad(org2.estrategia[3].getPublicidad()+1);
             org2.estrategia[3].setNoInvertir(org2.estrategia[3].getNoInvertir()); 
-        }      
-    }       
+        }  
+        temporales.add(org1);
+        temporales.add(org2);
+        
+        return temporales;
+    }
     
     public static Estrategia evaluarEstrategias(Organizacion org1){
             
@@ -687,5 +782,72 @@ public class Motor {
             tiendaTemporal.setVentas(nuevoValorDeVentas);
             organizacion5.cambiarDatosTienda(tiendaTemporal, i);
         }
+    }
+    
+    public static void inicializarEstrategias(){
+            estrategias1[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias1[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias1[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias1[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            estrategias2[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias2[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias2[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias2[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            estrategias3[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias3[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias3[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias3[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            estrategias4[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias4[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias4[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias4[3]= new Estrategia("No invertir",2,3,2,3);
+            
+            estrategias5[0]= new Estrategia("Abrir Tienda",5,10,8,9);
+            estrategias5[1]= new Estrategia("Cerrar Tienda",0,0,0,0);
+            estrategias5[2]= new Estrategia("Publicidad",4,7,6,8);
+            estrategias5[3]= new Estrategia("No invertir",2,3,2,3);
+    }
+    
+    public static void analizarVentasDeTiendasOrganizacion1(){
+            
+            ArrayList<Tienda> tiendasDeAnalisis=organizacion1.getTiendas();
+            for(int i=0;i<tiendasDeAnalisis.size();i++){
+                String analizador= tiendasDeAnalisis.get(i).getZona();
+                if(analizador.equals(ZONAN)){
+                    if(tiendasDeAnalisis.get(i).getVentas()*valorFactura<tiendasDeAnalisis.get(i).getGastos()){
+                        ui.cambiarZonaNorteRojo();
+                    }
+                    else{
+                        ui.cambiarZonaNorteVerde();
+                    }
+                }
+                if(analizador.equals(ZONAS)){
+                    if(tiendasDeAnalisis.get(i).getVentas()*valorFactura<tiendasDeAnalisis.get(i).getGastos()){
+                        ui.cambiarZonaSurRojo();
+                    }
+                    else{
+                        ui.cambiarZonaSurVerde();
+                    }
+                }
+                if(analizador.equals(ZONAO)){
+                    if(tiendasDeAnalisis.get(i).getVentas()*valorFactura<tiendasDeAnalisis.get(i).getGastos()){
+                        ui.cambiarZonaOrienteRojo();
+                    }
+                    else{
+                        ui.cambiarZonaOrienteVerde();
+                    }
+                }
+                if(analizador.equals(ZONAOCC)){
+                    if(tiendasDeAnalisis.get(i).getVentas()*valorFactura<tiendasDeAnalisis.get(i).getGastos()){
+                        ui.cambiarZonaOccidenteRojo();
+                    }
+                    else{
+                        ui.cambiarZonaOccidenteVerde();
+                    }
+                }
+            }
     }
 }

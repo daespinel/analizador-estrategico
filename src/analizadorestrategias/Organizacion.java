@@ -210,4 +210,8 @@ public class Organizacion {
         tiendas.set(posicion, tienda);
     }
     
+    public void eliminarTienda(int posicion){
+        tiendas.remove(posicion);
+    }
+    
 }

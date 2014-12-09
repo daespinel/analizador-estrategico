@@ -21,7 +21,7 @@ public class Estrategia {
     public Estrategia(){    
     }
     
-    public Estrategia(String nombre , int abrirTienda ,int cerrarTienda, int publicidad, int pago4){
+    public Estrategia(String nombre , int abrirTienda ,int cerrarTienda, int publicidad, int noInvertir){
         this.setNombre(nombre);
         this.setAbrirTienda(abrirTienda);
         this.setCerrarTienda(cerrarTienda);
