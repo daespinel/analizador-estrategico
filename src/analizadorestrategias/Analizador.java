@@ -191,6 +191,23 @@ public class Analizador extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
+        jFrame5 = new javax.swing.JFrame();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField28 = new javax.swing.JTextField();
+        jTextField29 = new javax.swing.JTextField();
+        jTextField30 = new javax.swing.JTextField();
+        jSeparator13 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jTextField31 = new javax.swing.JTextField();
+        jTextField32 = new javax.swing.JTextField();
+        jTextField33 = new javax.swing.JTextField();
+        jTextField34 = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
 
         jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame2.setAlwaysOnTop(true);
@@ -382,6 +399,7 @@ public class Analizador extends javax.swing.JFrame {
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Ingreso de datos");
         jFrame1.setIconImage(getIconImage());
+        jFrame1.setPreferredSize(new java.awt.Dimension(640, 480));
         jFrame1.setResizable(false);
         jFrame1.getContentPane().setLayout(null);
 
@@ -486,6 +504,7 @@ public class Analizador extends javax.swing.JFrame {
         jFrame3.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame3.setTitle("Datos Competencia");
         jFrame3.setIconImage(getIconImage());
+        jFrame3.setPreferredSize(new java.awt.Dimension(640, 480));
         jFrame3.getContentPane().setLayout(null);
 
         jLabel15.setText("Datos iniciales de las otras organizaciones");
@@ -682,6 +701,58 @@ public class Analizador extends javax.swing.JFrame {
         jFrame3.getContentPane().add(jLabel14);
         jLabel14.setBounds(0, 0, 640, 480);
 
+        jFrame5.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrame5.setTitle("Estrategias en Ejecución");
+        jFrame5.setIconImage(getIconImage());
+        jFrame5.setIconImages(getIconImages());
+        jFrame5.setPreferredSize(new java.awt.Dimension(640, 480));
+        jFrame5.setResizable(false);
+        jFrame5.getContentPane().setLayout(null);
+
+        jLabel52.setText("Organizacion 1");
+        jFrame5.getContentPane().add(jLabel52);
+        jLabel52.setBounds(40, 60, 190, 14);
+
+        jLabel53.setText("Organizacion 5");
+        jFrame5.getContentPane().add(jLabel53);
+        jLabel53.setBounds(490, 290, 140, 14);
+        jFrame5.getContentPane().add(jTextField27);
+        jTextField27.setBounds(40, 290, 190, 20);
+        jFrame5.getContentPane().add(jTextField28);
+        jTextField28.setBounds(290, 290, 190, 20);
+        jFrame5.getContentPane().add(jTextField29);
+        jTextField29.setBounds(40, 170, 190, 20);
+        jFrame5.getContentPane().add(jTextField30);
+        jTextField30.setBounds(40, 230, 190, 20);
+        jFrame5.getContentPane().add(jSeparator13);
+        jSeparator13.setBounds(280, 90, 220, 10);
+        jFrame5.getContentPane().add(jSeparator14);
+        jSeparator14.setBounds(40, 90, 220, 10);
+        jFrame5.getContentPane().add(jTextField31);
+        jTextField31.setBounds(40, 110, 190, 20);
+        jFrame5.getContentPane().add(jTextField32);
+        jTextField32.setBounds(290, 110, 190, 20);
+        jFrame5.getContentPane().add(jTextField33);
+        jTextField33.setBounds(290, 170, 190, 20);
+        jFrame5.getContentPane().add(jTextField34);
+        jTextField34.setBounds(290, 230, 190, 20);
+
+        jLabel54.setText("Otras Organizaciones");
+        jFrame5.getContentPane().add(jLabel54);
+        jLabel54.setBounds(330, 60, 140, 14);
+
+        jLabel55.setText("Organizacion 2");
+        jFrame5.getContentPane().add(jLabel55);
+        jLabel55.setBounds(490, 110, 140, 14);
+
+        jLabel56.setText("Organizacion 3");
+        jFrame5.getContentPane().add(jLabel56);
+        jLabel56.setBounds(490, 170, 140, 14);
+
+        jLabel57.setText("Organizacion 4");
+        jFrame5.getContentPane().add(jLabel57);
+        jLabel57.setBounds(490, 230, 140, 14);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 480));
 
@@ -724,6 +795,10 @@ public class Analizador extends javax.swing.JFrame {
         jFrame4.setSize(800,600);     
         jFrame4.setLocationRelativeTo(null);
         jFrame4.toFront();
+        jFrame5.setSize(640,480);     
+        jFrame5.setLocationRelativeTo(null);
+        jFrame5.toFront();
+        jFrame5.setVisible(true);
         jLabel41.setBackground(Color.green);
         jLabel42.setBackground(Color.green);
         jLabel43.setBackground(Color.green);
@@ -826,6 +901,7 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame2;
     private javax.swing.JFrame jFrame3;
     private javax.swing.JFrame jFrame4;
+    private javax.swing.JFrame jFrame5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -873,6 +949,12 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -882,6 +964,8 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -909,7 +993,15 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField30;
+    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField jTextField32;
+    private javax.swing.JTextField jTextField33;
+    private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -1044,6 +1136,18 @@ public class Analizador extends javax.swing.JFrame {
     public void cambiarZonaOccidenteVerde(){
         jLabel42.setBackground(Color.green);
 
+    }
+    
+    public void colocarDatosEstrategiasEnEjecucion(){
+        jTextField31.setText(Motor.estrategia1.getNombre());
+        jTextField29.setText(Motor.estrategia2.getNombre());
+        jTextField30.setText(Motor.estrategia3.getNombre());
+        jTextField27.setText(Motor.estrategia4.getNombre());
+        
+        jTextField32.setText(Motor.estrategiaAl2.getNombre());
+        jTextField33.setText(Motor.estrategiaAl3.getNombre());
+        jTextField34.setText(Motor.estrategiaAl4.getNombre());
+        jTextField28.setText(Motor.estrategiaAl5.getNombre());
     }
     
        
