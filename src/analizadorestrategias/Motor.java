@@ -32,7 +32,6 @@ public class Motor {
     public static Estrategia estrategia3 = new Estrategia();
     public static Estrategia estrategia4 = new Estrategia();
     
-    public static Estrategia estrategiaAl1 = new Estrategia();
     public static Estrategia estrategiaAl2 = new Estrategia();
     public static Estrategia estrategiaAl3 = new Estrategia();
     public static Estrategia estrategiaAl4 = new Estrategia();
@@ -139,7 +138,10 @@ public class Motor {
                 estrategia1 = evaluarEstrategias(organizacion1);
                 estrategiaAl2=estrategiaAleatoria(organizacion2);
                 pagoEst1 = pagoEstrategia(estrategia1,estrategiaAl2);
-                                                
+                
+                organizacion2=devolverAccion(estrategiaAl2, organizacion2);
+                
+                
                 ui.colocarDatosEstrategiasEnEjecucion();
                 
                 temporalesDeAsignacion=fitness(organizacion1, organizacion3);
@@ -148,6 +150,10 @@ public class Motor {
                 estrategia2 = evaluarEstrategias(organizacion1);
                 estrategiaAl3=estrategiaAleatoria(organizacion3);
                 pagoEst2 = pagoEstrategia(estrategia2,estrategiaAl3);
+                
+                
+                organizacion3=devolverAccion(estrategiaAl3, organizacion3);
+                
                 
                 ui.colocarDatosEstrategiasEnEjecucion();
                 
@@ -158,6 +164,9 @@ public class Motor {
                 estrategiaAl4=estrategiaAleatoria(organizacion4);
                 pagoEst3 = pagoEstrategia(estrategia3,estrategiaAl4);
                 
+                
+                organizacion4=devolverAccion(estrategiaAl4, organizacion4);
+                
                 ui.colocarDatosEstrategiasEnEjecucion();
                 
                 temporalesDeAsignacion=fitness(organizacion1, organizacion5);
@@ -166,6 +175,9 @@ public class Motor {
                 estrategia4 = evaluarEstrategias(organizacion1);
                  estrategiaAl5=estrategiaAleatoria(organizacion5);
                 pagoEst4 = pagoEstrategia(estrategia4,estrategiaAl5);
+                
+                organizacion5=devolverAccion(estrategiaAl5, organizacion5);
+                
                 
                 ui.colocarDatosEstrategiasEnEjecucion();
                 
@@ -184,66 +196,7 @@ public class Motor {
                 capitalTemporal=organizacion5.getCapital()+organizacion5.getGanancias()-organizacion1.getGastos();
                 organizacion5.setCapital(capitalTemporal);
                 
-                if(mejorEstrategia.getNombre().equals("Abrir Tienda")){
-                    int zona=rnd.nextInt(4);
-                    String nombreTemporal="";
-                    double ventas=0;
-                
-                    switch(zona){
-                     case 0:
-                            nombreTemporal=ZONAN;
-                            ventas=VZONAN;
-                            break;
-                     case 1:
-                        nombreTemporal=ZONAS;
-                        ventas=VZONAS;
-                        break;
-                    case 2:
-                        nombreTemporal=ZONAO;
-                        ventas=VZONAO;
-                        break;
-                    case 3:
-                        nombreTemporal=ZONAOCC;
-                        ventas=VZONAOCC;
-                        break;
-                    }
-                    Tienda tiendaTemp=new Tienda(nombreTemporal,ventas,GASTOBASE);
-                    organizacion1.agregarTienda(tiendaTemp);
-                    
-                }
-                else{
-                    if(mejorEstrategia.getNombre().equals("Cerrar Tienda")){
-                        ArrayList<Tienda> tiendasAEliminar =organizacion1.getTiendas();
-                        Tienda tiendaAEliminar=tiendasAEliminar.get(0);
-                        int posicionAEliminar=0;
-                        for(int i=0;i<tiendasAEliminar.size();i++){
-                            if(tiendaAEliminar.getVentas()>tiendasAEliminar.get(i).getVentas()){
-                                tiendaAEliminar=tiendasAEliminar.get(i);
-                                posicionAEliminar=i;
-                                
-                                
-                            }
-                        }
-                        organizacion1.eliminarTienda(posicionAEliminar);
-                    }
-                    else{
-                        if(mejorEstrategia.getNombre().equals("Publicidad")){
-                            double capital=organizacion1.getCapital();
-                            organizacion1.setCapital(capital-50000000);
-                            int algo =rnd.nextInt(organizacion1.getSize());
-                            Tienda cambio=organizacion1.getTiendas().get(algo);
-                            double ventasActuales=cambio.getVentas();
-                            cambio.setVentas(ventasActuales+ventasActuales*0.05);
-                            
-                            organizacion1.cambiarDatosTienda(cambio, algo);
-                        }
-                        else{
-                            if(mejorEstrategia.getNombre().equals("No invertir")){
-                                double capital=organizacion1.getCapital();
-                                organizacion1.setCapital(capital-25000000);
-                            }
-                            }
-                }
+                organizacion1=devolverAccion(mejorEstrategia, organizacion1);
                 
                 ui.continuar();
                 generaciones++;
@@ -252,7 +205,7 @@ public class Motor {
                 System.out.println(generaciones+" "+ organizacion1.getGananciaFormato());
                 
             }
-	}
+	
             
     }
     
@@ -868,5 +821,73 @@ public class Motor {
                     }
                 }
             }
+    }
+    
+    public static Organizacion devolverAccion(Estrategia estr, Organizacion org){
+        if(estr.getNombre().equals("Abrir Tienda")){
+                if(org.getSize()<29){
+                    int zona=rnd.nextInt(4);
+                    String nombreTemporal="";
+                    double ventas=0;
+                
+                    switch(zona){
+                     case 0:
+                            nombreTemporal=ZONAN;
+                            ventas=VZONAN;
+                            break;
+                     case 1:
+                        nombreTemporal=ZONAS;
+                        ventas=VZONAS;
+                        break;
+                    case 2:
+                        nombreTemporal=ZONAO;
+                        ventas=VZONAO;
+                        break;
+                    case 3:
+                        nombreTemporal=ZONAOCC;
+                        ventas=VZONAOCC;
+                        break;
+                    }
+                    Tienda tiendaTemp=new Tienda(nombreTemporal,ventas,GASTOBASE);
+                    org.agregarTienda(tiendaTemp);
+                }
+                }
+                else{
+                    if(estr.getNombre().equals("Cerrar Tienda")){
+                        if(org.getSize()>1){
+                        ArrayList<Tienda> tiendasAEliminar =org.getTiendas();
+                        Tienda tiendaAEliminar=tiendasAEliminar.get(0);
+                        int posicionAEliminar=0;
+                        for(int i=0;i<tiendasAEliminar.size();i++){
+                            if(tiendaAEliminar.getVentas()>tiendasAEliminar.get(i).getVentas()){
+                                tiendaAEliminar=tiendasAEliminar.get(i);
+                                posicionAEliminar=i;
+                                
+                                
+                            }
+                        }
+                        org.eliminarTienda(posicionAEliminar);
+                    }
+                    }
+                    else{
+                        if(estr.getNombre().equals("Publicidad")){
+                            double capital=org.getCapital();
+                            org.setCapital(capital-50000000);
+                            int algo =rnd.nextInt(org.getSize());
+                            Tienda cambio=org.getTiendas().get(algo);
+                            double ventasActuales=cambio.getVentas();
+                            cambio.setVentas(ventasActuales+ventasActuales*0.05);
+                            
+                            org.cambiarDatosTienda(cambio, algo);
+                        }
+                        else{
+                            if(estr.getNombre().equals("No invertir")){
+                                double capital=org.getCapital();
+                                org.setCapital(capital-25000000);
+                            }
+                            }
+                }}
+        
+        return org;
     }
 }
