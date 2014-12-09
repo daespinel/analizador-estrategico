@@ -204,10 +204,13 @@ public class Analizador extends javax.swing.JFrame {
         jTextField32 = new javax.swing.JTextField();
         jTextField33 = new javax.swing.JTextField();
         jTextField34 = new javax.swing.JTextField();
+        jTextField35 = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
 
         jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame2.setAlwaysOnTop(true);
@@ -736,6 +739,8 @@ public class Analizador extends javax.swing.JFrame {
         jTextField33.setBounds(290, 170, 190, 20);
         jFrame5.getContentPane().add(jTextField34);
         jTextField34.setBounds(290, 230, 190, 20);
+        jFrame5.getContentPane().add(jTextField35);
+        jTextField35.setBounds(260, 400, 210, 20);
 
         jLabel54.setText("Otras Organizaciones");
         jFrame5.getContentPane().add(jLabel54);
@@ -749,9 +754,17 @@ public class Analizador extends javax.swing.JFrame {
         jFrame5.getContentPane().add(jLabel56);
         jLabel56.setBounds(490, 170, 140, 14);
 
+        jLabel59.setText("Tiendas organizacion 2");
+        jFrame5.getContentPane().add(jLabel59);
+        jLabel59.setBounds(270, 360, 170, 14);
+
         jLabel57.setText("Organizacion 4");
         jFrame5.getContentPane().add(jLabel57);
         jLabel57.setBounds(490, 230, 140, 14);
+
+        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo2.jpg"))); // NOI18N
+        jFrame5.getContentPane().add(jLabel58);
+        jLabel58.setBounds(0, 0, 640, 480);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 480));
@@ -955,6 +968,8 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1002,6 +1017,7 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField34;
+    private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -1148,6 +1164,8 @@ public class Analizador extends javax.swing.JFrame {
         jTextField33.setText(Motor.estrategiaAl3.getNombre());
         jTextField34.setText(Motor.estrategiaAl4.getNombre());
         jTextField28.setText(Motor.estrategiaAl5.getNombre());
+        
+        jTextField35.setText(String.valueOf(Motor.organizacion2.getSize()));
     }
     
        
