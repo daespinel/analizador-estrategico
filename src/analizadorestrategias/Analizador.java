@@ -114,16 +114,20 @@ public class Analizador extends javax.swing.JFrame {
         jLabel49 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        jTextField26 = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -269,18 +273,18 @@ public class Analizador extends javax.swing.JFrame {
         jFrame4.getContentPane().add(jTextField24);
         jTextField24.setBounds(580, 200, 180, 20);
         jFrame4.getContentPane().add(jSeparator7);
-        jSeparator7.setBounds(510, 240, 250, 20);
+        jSeparator7.setBounds(510, 270, 250, 10);
         jFrame4.getContentPane().add(jSeparator8);
         jSeparator8.setBounds(510, 100, 250, 20);
         jFrame4.getContentPane().add(jSeparator9);
         jSeparator9.setBounds(510, 140, 250, 20);
         jFrame4.getContentPane().add(jTextField25);
-        jTextField25.setBounds(580, 260, 180, 20);
+        jTextField25.setBounds(580, 280, 180, 20);
 
         jLabel49.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel49.setText("Gastos");
+        jLabel49.setText("Utilidad");
         jFrame4.getContentPane().add(jLabel49);
-        jLabel49.setBounds(510, 260, 60, 14);
+        jLabel49.setBounds(510, 280, 60, 14);
 
         jLabel43.setToolTipText("Zona Sur");
         jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -292,10 +296,6 @@ public class Analizador extends javax.swing.JFrame {
         jLabel33.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jFrame4.getContentPane().add(jLabel33);
         jLabel33.setBounds(20, 40, 450, 280);
-
-        jLabel37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jFrame4.getContentPane().add(jLabel37);
-        jLabel37.setBounds(500, 30, 270, 290);
 
         jLabel38.setText("Datos de la organización");
         jFrame4.getContentPane().add(jLabel38);
@@ -324,12 +324,27 @@ public class Analizador extends javax.swing.JFrame {
         jLabel40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jFrame4.getContentPane().add(jLabel40);
         jLabel40.setBounds(20, 340, 750, 170);
+        jFrame4.getContentPane().add(jTextField26);
+        jTextField26.setBounds(580, 240, 180, 20);
         jFrame4.getContentPane().add(jSeparator5);
         jSeparator5.setBounds(20, 30, 450, 20);
         jFrame4.getContentPane().add(jSeparator6);
         jSeparator6.setBounds(510, 60, 250, 20);
         jFrame4.getContentPane().add(jSeparator10);
-        jSeparator10.setBounds(510, 190, 250, 20);
+        jSeparator10.setBounds(510, 230, 250, 20);
+        jFrame4.getContentPane().add(jSeparator11);
+        jSeparator11.setBounds(510, 190, 250, 20);
+        jFrame4.getContentPane().add(jSeparator12);
+        jSeparator12.setBounds(510, 190, 250, 20);
+
+        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel51.setText("Gastos");
+        jFrame4.getContentPane().add(jLabel51);
+        jLabel51.setBounds(510, 240, 60, 14);
+
+        jLabel37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jFrame4.getContentPane().add(jLabel37);
+        jLabel37.setBounds(500, 30, 270, 290);
 
         jLabel50.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel50.setText("Ventas");
@@ -778,24 +793,21 @@ public class Analizador extends javax.swing.JFrame {
         
         Graphics2D gfx = (Graphics2D)jPan.getGraphics();
         
-        ArrayList<Double> arraytemporaldeprueba= new ArrayList<Double>();
-        for(int i=0;i<50;i++){
-            arraytemporaldeprueba.add((double)Motor.rnd.nextInt(50));
-        }
+        
         
         if(utilizarbotondegrafico==0){
-            if(arraytemporaldeprueba.size()>350){
-                int datoinicio=arraytemporaldeprueba.size()-351;
-                List<Double> listadeelementostemporal= arraytemporaldeprueba.subList(datoinicio, arraytemporaldeprueba.size());
+            if(Motor.valores.size()>350){
+                int datoinicio=Motor.valores.size()-351;
+                List<Double> listadeelementostemporal= Motor.valores.subList(datoinicio, Motor.valores.size());
                 for(int j=0;j<listadeelementostemporal.size()-1;j++){
-                    int valory1=150-listadeelementostemporal.get(j).intValue();
-                    int valory2=150-listadeelementostemporal.get(j+1).intValue();
+                    int valory1=150-listadeelementostemporal.get(j).intValue()/100000000;
+                    int valory2=150-listadeelementostemporal.get(j+1).intValue()/100000000;
                     gfx.drawLine(j,valory1,j+1,valory2);
                     //System.out.println(350-listadeelementostemporal.get(j).intValue());
                 }
             }else{
-                for(int j=0;j<arraytemporaldeprueba.size()-1;j++){
-                    gfx.drawLine(j,150-arraytemporaldeprueba.get(j).intValue(),j+1,150-arraytemporaldeprueba.get(j+1).intValue());
+                for(int j=0;j<Motor.valores.size()-1;j++){
+                    gfx.drawLine(j,150-Motor.valores.get(j).intValue()/100000000,j+1,150-Motor.valores.get(j+1).intValue()/100000000);
                 }
             
             }
@@ -860,6 +872,7 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -867,6 +880,8 @@ public class Analizador extends javax.swing.JFrame {
     public javax.swing.JPanel jPan;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -893,6 +908,7 @@ public class Analizador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -985,13 +1001,14 @@ public class Analizador extends javax.swing.JFrame {
     }
     
     public void mostrarDatosOrganizacion1(){
-        jTextField20.setText(Motor.organizacion1.estrategia[Motor.organizacion1.getEstrategiaActual()].getNombre());
+        jTextField20.setText(Motor.mejorEstrategia.getNombre());
         jTextField21.setText(String.valueOf(Motor.organizacion1.getNumeroTiendas()));
         jTextField22.setText(String.valueOf(Motor.organizacion1.getCapitalFormato()));
         
         jTextField23.setText(String.valueOf(Motor.organizacion1.getIngresosFormato()));
         jTextField24.setText(String.valueOf(Motor.organizacion1.getTotalVentas()));
-        jTextField25.setText(String.valueOf(Motor.organizacion1.getGastosFormato()));
+        jTextField26.setText(String.valueOf(Motor.organizacion1.getGastosFormato()));
+        jTextField25.setText(String.valueOf(Motor.organizacion1.getGananciaFormato()));
     }
     
     public void cambiarZonaNorteRojo(){

@@ -6,9 +6,10 @@
 
 package analizadorestrategias;
 
-import java.text.DecimalFormat;
-import java.util.Random;
 import java.math.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -16,6 +17,8 @@ import java.math.*;
  * @author David
  */
 public class Motor {
+    
+    public static ArrayList<Double> valores = new ArrayList<Double>();
     
     public static Estrategia[] estrategias1 = new Estrategia[4];
     public static Estrategia[] estrategias2 = new Estrategia[4];
@@ -137,7 +140,7 @@ public class Motor {
                 pagoEst4 = pagoEstrategia(estrategia4,estrategiaAleatoria(organizacion5));
                 
                 comparaEstrategias();
-                
+                valores.add(organizacion1.getGanancias());
                 ui.continuar();
                 generaciones++;
                 ui.colocarGeneraciones(getGen());
@@ -323,7 +326,7 @@ public class Motor {
             org1.estrategia[2].setCerrarTienda(org1.estrategia[2].getNoInvertir()+1);
             org1.estrategia[3].setAbrirTienda(org1.estrategia[3].getAbrirTienda()+2);
             org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getCerrarTienda());
-            org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getPublcidad()+1);
+            org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getPublicidad()+1);
             org1.estrategia[3].setCerrarTienda(org1.estrategia[3].getNoInvertir()+1);
 
             org2.estrategia[0].setAbrirTienda(org2.estrategia[0].getAbrirTienda()-1);
