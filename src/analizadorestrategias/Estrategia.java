@@ -18,6 +18,9 @@ public class Estrategia {
     private int publicidad;
     private int noInvertir;
             
+    public Estrategia(){    
+    }
+    
     public Estrategia(String nombre , int abrirTienda ,int cerrarTienda, int publicidad, int pago4){
         this.setNombre(nombre);
         this.setAbrirTienda(abrirTienda);
