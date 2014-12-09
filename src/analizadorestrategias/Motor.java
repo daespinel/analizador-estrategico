@@ -32,7 +32,7 @@ public class Motor {
     
     public static int generaciones=0;
     public static double tasaRiesgoLibre =5;
-    public static double volatilidadMercado =20;
+    public static double volatilidadMercado =10;
     public static double valorFactura=0;
     
     public static final String ZONAN="NORTE";
@@ -100,7 +100,7 @@ public class Motor {
             organizacion1.estrategia = estrategias1; 
             
             while(generaciones<100000){
-                
+                variacionDelMercado();
                 organizacion1.calcularIngresosTiendas();
                 organizacion2.calcularIngresosTiendas();
                 organizacion3.calcularIngresosTiendas();
@@ -326,5 +326,119 @@ public class Motor {
     
     public static void evaluarEstrategia(){
         
+    }
+    
+    public static void variacionDelMercado(){
+        for(int i=0;i<organizacion1.getSize();i++){
+            Tienda tiendaTemporal=organizacion1.getTiendas().get(i);
+            double numeroVentasIniciales=tiendaTemporal.getVentas();
+            double maximoDiezPorCiento=numeroVentasIniciales*.1;
+            double nuevoValorDeVentas=0;
+           
+            do{
+                int seleccionDeCrecimiento=rnd.nextInt(2);
+                double valorDeCambio=(double)rnd.nextInt((int)maximoDiezPorCiento);
+                switch(seleccionDeCrecimiento){
+                    case(0):
+                        nuevoValorDeVentas=numeroVentasIniciales+valorDeCambio;
+                        break;
+                    case(1):
+                        nuevoValorDeVentas=numeroVentasIniciales-valorDeCambio;
+                        break;
+                }
+            }while(numeroVentasIniciales<0);
+            tiendaTemporal.setVentas(nuevoValorDeVentas);
+            organizacion1.cambiarDatosTienda(tiendaTemporal, i);
+            
+            
+        }
+        
+        for(int i=0;i<organizacion2.getSize();i++){
+            Tienda tiendaTemporal=organizacion2.getTiendas().get(i);
+            double numeroVentasIniciales=tiendaTemporal.getVentas();
+            double maximoDiezPorCiento=numeroVentasIniciales*.1;
+            double nuevoValorDeVentas=0;
+           
+            do{
+                int seleccionDeCrecimiento=rnd.nextInt(2);
+                double valorDeCambio=(double)rnd.nextInt((int)maximoDiezPorCiento);
+                switch(seleccionDeCrecimiento){
+                    case(0):
+                        nuevoValorDeVentas=numeroVentasIniciales+valorDeCambio;
+                        break;
+                    case(1):
+                        nuevoValorDeVentas=numeroVentasIniciales-valorDeCambio;
+                        break;
+                }
+            }while(numeroVentasIniciales<0);
+            tiendaTemporal.setVentas(nuevoValorDeVentas);
+            organizacion2.cambiarDatosTienda(tiendaTemporal, i);
+        }
+        
+        for(int i=0;i<organizacion3.getSize();i++){
+            Tienda tiendaTemporal=organizacion3.getTiendas().get(i);
+            double numeroVentasIniciales=tiendaTemporal.getVentas();
+            double maximoDiezPorCiento=numeroVentasIniciales*.1;
+            double nuevoValorDeVentas=0;
+           
+            do{
+                int seleccionDeCrecimiento=rnd.nextInt(2);
+                double valorDeCambio=(double)rnd.nextInt((int)maximoDiezPorCiento);
+                switch(seleccionDeCrecimiento){
+                    case(0):
+                        nuevoValorDeVentas=numeroVentasIniciales+valorDeCambio;
+                        break;
+                    case(1):
+                        nuevoValorDeVentas=numeroVentasIniciales-valorDeCambio;
+                        break;
+                }
+            }while(numeroVentasIniciales<0);
+            tiendaTemporal.setVentas(nuevoValorDeVentas);
+            organizacion3.cambiarDatosTienda(tiendaTemporal, i);
+        }
+        
+        for(int i=0;i<organizacion4.getSize();i++){
+            Tienda tiendaTemporal=organizacion4.getTiendas().get(i);
+            double numeroVentasIniciales=tiendaTemporal.getVentas();
+            double maximoDiezPorCiento=numeroVentasIniciales*.1;
+            double nuevoValorDeVentas=0;
+           
+            do{
+                int seleccionDeCrecimiento=rnd.nextInt(2);
+                double valorDeCambio=(double)rnd.nextInt((int)maximoDiezPorCiento);
+                switch(seleccionDeCrecimiento){
+                    case(0):
+                        nuevoValorDeVentas=numeroVentasIniciales+valorDeCambio;
+                        break;
+                    case(1):
+                        nuevoValorDeVentas=numeroVentasIniciales-valorDeCambio;
+                        break;
+                }
+            }while(numeroVentasIniciales<0);
+            tiendaTemporal.setVentas(nuevoValorDeVentas);
+            organizacion4.cambiarDatosTienda(tiendaTemporal, i);
+        }
+        
+        for(int i=0;i<organizacion5.getSize();i++){
+            Tienda tiendaTemporal=organizacion5.getTiendas().get(i);
+            double numeroVentasIniciales=tiendaTemporal.getVentas();
+            double maximoDiezPorCiento=numeroVentasIniciales*.1;
+            double nuevoValorDeVentas=0;
+           
+            do{
+                int seleccionDeCrecimiento=rnd.nextInt(2);
+                double valorDeCambio=(double)rnd.nextInt((int)maximoDiezPorCiento);
+                switch(seleccionDeCrecimiento){
+                    case(0):
+                        nuevoValorDeVentas=numeroVentasIniciales+valorDeCambio;
+                        break;
+                    case(1):
+                        nuevoValorDeVentas=numeroVentasIniciales-valorDeCambio;
+                        break;
+                }
+            }while(numeroVentasIniciales<0);
+            tiendaTemporal.setVentas(nuevoValorDeVentas);
+            organizacion5.cambiarDatosTienda(tiendaTemporal, i);
+        }
     }
 }
