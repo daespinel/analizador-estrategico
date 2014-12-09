@@ -31,6 +31,13 @@ public class Motor {
     public static Estrategia estrategia2 = new Estrategia();
     public static Estrategia estrategia3 = new Estrategia();
     public static Estrategia estrategia4 = new Estrategia();
+    
+    public static Estrategia estrategiaAl1 = new Estrategia();
+    public static Estrategia estrategiaAl2 = new Estrategia();
+    public static Estrategia estrategiaAl3 = new Estrategia();
+    public static Estrategia estrategiaAl4 = new Estrategia();
+    public static Estrategia estrategiaAl5 = new Estrategia();
+    
         
     public static Organizacion organizacion1;
     public static Organizacion organizacion2;
@@ -130,25 +137,37 @@ public class Motor {
                 organizacion1=temporalesDeAsignacion.get(0);
                 organizacion2=temporalesDeAsignacion.get(1);
                 estrategia1 = evaluarEstrategias(organizacion1);
-                pagoEst1 = pagoEstrategia(estrategia1,estrategiaAleatoria(organizacion2));
+                estrategiaAl2=estrategiaAleatoria(organizacion2);
+                pagoEst1 = pagoEstrategia(estrategia1,estrategiaAl2);
                                                 
+                ui.colocarDatosEstrategiasEnEjecucion();
+                
                 temporalesDeAsignacion=fitness(organizacion1, organizacion3);
                 organizacion1=temporalesDeAsignacion.get(0);
                 organizacion3=temporalesDeAsignacion.get(1);
                 estrategia2 = evaluarEstrategias(organizacion1);
-                pagoEst2 = pagoEstrategia(estrategia2,estrategiaAleatoria(organizacion3));
+                estrategiaAl3=estrategiaAleatoria(organizacion3);
+                pagoEst2 = pagoEstrategia(estrategia2,estrategiaAl3);
+                
+                ui.colocarDatosEstrategiasEnEjecucion();
                 
                 temporalesDeAsignacion=fitness(organizacion1, organizacion4);
                 organizacion1=temporalesDeAsignacion.get(0);
                 organizacion4=temporalesDeAsignacion.get(1);
                 estrategia3 = evaluarEstrategias(organizacion1);
-                pagoEst3 = pagoEstrategia(estrategia3,estrategiaAleatoria(organizacion4));
+                estrategiaAl4=estrategiaAleatoria(organizacion4);
+                pagoEst3 = pagoEstrategia(estrategia3,estrategiaAl4);
+                
+                ui.colocarDatosEstrategiasEnEjecucion();
                 
                 temporalesDeAsignacion=fitness(organizacion1, organizacion5);
                 organizacion1=temporalesDeAsignacion.get(0);
                 organizacion5=temporalesDeAsignacion.get(1);
                 estrategia4 = evaluarEstrategias(organizacion1);
-                pagoEst4 = pagoEstrategia(estrategia4,estrategiaAleatoria(organizacion5));
+                 estrategiaAl5=estrategiaAleatoria(organizacion5);
+                pagoEst4 = pagoEstrategia(estrategia4,estrategiaAl5);
+                
+                ui.colocarDatosEstrategiasEnEjecucion();
                 
                 comparaEstrategias();
                 valores.add(organizacion1.getGanancias());
