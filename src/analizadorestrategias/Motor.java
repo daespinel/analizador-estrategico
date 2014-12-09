@@ -202,7 +202,8 @@ public class Motor {
                 generaciones++;
                 ui.colocarGeneraciones(getGen());
                 ui.mostrarDatosOrganizacion1();
-                System.out.println(generaciones+" "+ organizacion1.getGananciaFormato());
+                //System.out.println(generaciones+" "+ organizacion1.getGananciaFormato());
+                System.out.println(valores.get(valores.size()-1).intValue());
                 
             }
 	
