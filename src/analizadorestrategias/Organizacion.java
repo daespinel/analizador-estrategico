@@ -206,4 +206,8 @@ public class Organizacion {
         this.estrategiaActual = estrategiaActual;
     }
     
+    public void cambiarDatosTienda(Tienda tienda, int posicion){
+        tiendas.set(posicion, tienda);
+    }
+    
 }
